@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="Guess"
+            android:textAllCaps="false"
             android:textSize="24sp"
             android:onClick="guess"
             />
@@ -44,18 +45,21 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="New"
+            android:textAllCaps="false"
             />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Setting"
+            android:textAllCaps="false"
             />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Exit"
+            android:textAllCaps="false"
             android:onClick="exit"
             />
     </LinearLayout>

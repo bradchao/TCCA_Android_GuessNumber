@@ -20,8 +20,10 @@
             android:layout_alignParentRight="true"
             android:text="Guess"
             android:textSize="24sp"
+            android:onClick="guess"
             />
         <EditText
+            android:id="@+id/input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/guess"
@@ -54,10 +56,12 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Exit"
+            android:onClick="exit"
             />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/log"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff0"

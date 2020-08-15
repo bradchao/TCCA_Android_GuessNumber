@@ -22,6 +22,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        Log.v("bradlog", "onBackPressed");
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        Log.v("bradlog", "finish");
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         Log.v("bradlog", "onStop");

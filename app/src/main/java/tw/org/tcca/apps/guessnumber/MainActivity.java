@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,14 +24,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
+        super.onBackPressed();
         Log.v("bradlog", "onBackPressed");
     }
 
+    private long lastTime = 0;
+
     @Override
     public void finish() {
-        super.finish();
-        Log.v("bradlog", "finish");
+        if (System.currentTimeMillis() - lastTime < 3*1000){
+            super.finish();
+        }else{
+            lastTime = System.currentTimeMillis();
+            Toast.makeText(this, "One more time exit", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

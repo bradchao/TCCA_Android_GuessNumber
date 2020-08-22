@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText input;
     private TextView log;
     private int counter;    // 0
+    private int dig = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         input.setText("");
 
-        if (result.equals("3A0B")){
+        if (result.equals(dig + "A0B")){
             // WINNER
             showDialog(true);
         }else if (counter == 10){
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String createAnswer(){
         HashSet<Integer> set = new HashSet<>();
-        while (set.size()<3){
+        while (set.size()<dig){
             set.add((int)(Math.random()*10));
         }
         String ret = "";
@@ -140,5 +141,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void newGame(View view) {
         initRound();
+    }
+
+    public void setting(View view) {
+        
     }
 }

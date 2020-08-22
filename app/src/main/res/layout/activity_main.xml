@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:text="Setting"
             android:textAllCaps="false"
+            android:onClick="setting"
             />
         <Button
             android:layout_width="0dp"

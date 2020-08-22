@@ -143,14 +143,23 @@ public class MainActivity extends AppCompatActivity {
         initRound();
     }
 
+    private int tempDig = dig;
     public void setting(View view) {
         String[] items = {"2","3","4","5"};
         new AlertDialog.Builder(this)
                 .setTitle("玩幾碼?")
-                .setItems(items, new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(items, dig-2, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Log.v("bradlog", "i = " + i);
+                        Log.v("bradlog", "A:i = " + i);
+                        tempDig = i + 2;
+                    }
+                })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dig = tempDig;
+                        newGame(null);
                     }
                 })
                 .create()

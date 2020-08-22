@@ -5,22 +5,40 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
     private String answer;
+    private EditText input;
+    private TextView log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        input = findViewById(R.id.input);
+        log = findViewById(R.id.log);
+
         initRound();
     }
 
     public void guess(View view) {
+        String inputString = input.getText().toString();
+        String result = checkAB(inputString);
+        log.append(inputString + ":" + result + "\n");
+
+        input.setText("");
+
+    }
+
+    private String checkAB(String guess){
+
+        return "1A2B";
     }
 
     public void exit(View view) {

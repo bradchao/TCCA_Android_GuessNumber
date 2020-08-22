@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.HashSet;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void guess(View view) {
+        String answer = createAnswer();
+        Log.v("bradlog", answer);
     }
 
     public void exit(View view) {
@@ -51,4 +55,18 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.v("bradlog", "onDestroy");
     }
+
+    private String createAnswer(){
+        HashSet<Integer> set = new HashSet<>();
+        while (set.size()<3){
+            set.add((int)(Math.random()*10));
+        }
+        String ret = "";
+        for (Integer i : set){
+            ret += i;
+        }
+        return ret;
+    }
+
+
 }

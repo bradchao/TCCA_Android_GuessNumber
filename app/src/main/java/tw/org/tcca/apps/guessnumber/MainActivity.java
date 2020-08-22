@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRound(){
         answer = createAnswer();
+        log.setText("");
+        input.setText("");
     }
 
     private String createAnswer(){

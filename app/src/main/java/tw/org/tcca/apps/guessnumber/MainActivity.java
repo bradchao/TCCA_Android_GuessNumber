@@ -144,9 +144,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setting(View view) {
+        String[] items = {"2","3","4","5"};
         new AlertDialog.Builder(this)
                 .setTitle("玩幾碼?")
-                .setMessage("Hello, World")
+                .setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Log.v("bradlog", "i = " + i);
+                    }
+                })
                 .create()
                 .show();
     }

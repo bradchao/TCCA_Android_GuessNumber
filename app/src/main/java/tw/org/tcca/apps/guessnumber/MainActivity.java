@@ -144,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setting(View view) {
-        
+        new AlertDialog.Builder(this)
+                .setTitle("玩幾碼?")
+                .setMessage("Hello, World")
+                .create()
+                .show();
     }
 }

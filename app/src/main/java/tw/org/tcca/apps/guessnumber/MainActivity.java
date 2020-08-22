@@ -10,16 +10,17 @@ import android.widget.Toast;
 import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
+    private String answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initRound();
     }
 
     public void guess(View view) {
-        String answer = createAnswer();
-        Log.v("bradlog", answer);
     }
 
     public void exit(View view) {
@@ -56,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         Log.v("bradlog", "onDestroy");
     }
 
+    private void initRound(){
+        answer = createAnswer();
+    }
+
     private String createAnswer(){
         HashSet<Integer> set = new HashSet<>();
         while (set.size()<3){
@@ -69,4 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void newGame(View view) {
+        initRound();
+    }
 }

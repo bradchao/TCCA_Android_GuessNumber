@@ -3,6 +3,7 @@ package tw.org.tcca.apps.guessnumber;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -53,6 +54,19 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Result");
         builder.setMessage(mesg);
+        builder.setCancelable(false);
+        builder.setPositiveButton("Again", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                newGame(null);
+            }
+        });
+        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity.super.finish();
+            }
+        });
         alertDialog = builder.create();
         alertDialog.show();
     }

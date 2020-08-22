@@ -37,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String checkAB(String guess){
-
-        return "1A2B";
+        int A, B; A = B = 0;
+        for (int i=0; i<guess.length(); i++){
+            if (answer.charAt(i) == guess.charAt(i)){
+                A++;
+            }else if(answer.indexOf(guess.charAt(i)) != -1){
+                B++;
+            }
+        }
+        return String.format("%dA%dB", A, B);
     }
 
     public void exit(View view) {
@@ -88,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         for (Integer i : set){
             ret += i;
         }
+        Log.v("bradlog", "ans = " + ret);
         return ret;
     }
 

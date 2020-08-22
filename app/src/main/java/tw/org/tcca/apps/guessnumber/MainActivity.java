@@ -1,5 +1,6 @@
 package tw.org.tcca.apps.guessnumber;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -38,12 +39,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (result.equals("3A0B")){
             // WINNER
-            Log.v("bradlog", "winner");
+            showDialog(true);
         }else if (counter == 10){
             // LOSER
-            Log.v("bradlog", counter + ":" + "loser");
+            showDialog(false);
         }
 
+    }
+
+    private void showDialog(boolean isWinner){
+        String mesg = isWinner?"恭喜老爺":"魯蛇:" + answer;
+        AlertDialog alertDialog = null;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Result");
+        builder.setMessage(mesg);
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private String checkAB(String guess){
